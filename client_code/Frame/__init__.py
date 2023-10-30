@@ -13,8 +13,8 @@ class Frame(FrameTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    #Present users with a login form with just one line of code:
-    #anvil.users.login_with_form()
+    # Present users with a login form with just one line of code:
+    anvil.users.login_with_form()
 
     #Set the Plotly plots template to match the theme of the app
     Plot.templates.default = "rally"
@@ -43,10 +43,10 @@ class Frame(FrameTemplate):
     self.sales_page_link.background = "transparent"
 
   #If using the Users service, uncomment this code to log out the user:
-  # def signout_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   anvil.users.logout()
-  #   open_form('Logout')
+  def signout_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    anvil.users.logout()
+    open_form('Logout')
 
 
 
