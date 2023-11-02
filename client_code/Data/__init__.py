@@ -1,4 +1,4 @@
-from ._anvil_designer import FrameTemplate
+from ._anvil_designer import DataTemplate
 from anvil import *
 import anvil.server
 import anvil.users
@@ -7,23 +7,21 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Reports import Reports
 from ..Sales import Sales
-from ..Data import Data
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
-class Frame(FrameTemplate):
+class Data(DataTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    anvil.users.login_with_form()
-    
     #Set the Plotly plots template to match the theme of the app
     Plot.templates.default = "rally"
     #When the app starts up, the Sales form will be added to the page
-    self.content_panel.add_component(Data())
+    self.content_panel.add_component(Sales())
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
     self.sales_page_link.background = app.theme_colors['Primary Container']
-    
+
+
   def sales_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     #Clear the content panel and add the Sales Form
@@ -51,11 +49,3 @@ class Frame(FrameTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
-
-
-
-
-
-
-
-
