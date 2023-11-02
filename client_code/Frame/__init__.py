@@ -32,6 +32,7 @@ class Frame(FrameTemplate):
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
     self.sales_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
+    self.button_1.background = "transparent"
 
   def reports_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -41,6 +42,7 @@ class Frame(FrameTemplate):
     #Change the color of the sales_page_link to indicate that the Reports page has been selected
     self.reports_page_link.background = app.theme_colors['Primary Container']
     self.sales_page_link.background = "transparent"
+    self.button_1.background = "transparent"
 
   #If using the Users service, uncomment this code to log out the user:
   def signout_link_click(self, **event_args):
@@ -50,6 +52,11 @@ class Frame(FrameTemplate):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.content_panel.clear()
+    self.content_panel.add_component(Data())
+    self.button_1.background = app.theme_colors['Primary Container']
+    self.sales_page_link.background = "transparent"
+    self.reports_page_link.background = "transparent"
     pass
 
 
